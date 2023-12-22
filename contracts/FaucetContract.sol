@@ -2,8 +2,23 @@
 pragma solidity >=0.4.22 <0.9.0;
 
 contract Faucet {
-    uint public funds = 1000;
-    int public counter = -10;
-    uint32 public test = 11111;
+    receive() external payable {}
+
+
+    address[] private funders;
+
+    function addFunds() external payable {
+        funders.push(msg.sender);
+    }
+
+    function getFunders() public view returns (address[] memory) {
+        return funders;
+    }
+
+    function getFunderAtIndex(uint8 index) external view returns(address) {
+        address[] memory _funders = getFunders();
+        return _funders[index];
+
+    }
 }
 
