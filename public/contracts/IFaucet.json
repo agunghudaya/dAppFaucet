@@ -1,0 +1,182 @@
+{
+  "contractName": "IFaucet",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "addFunds",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "withdraw",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"addFunds\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IFaucet.sol\":\"IFaucet\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IFaucet.sol\":{\"keccak256\":\"0x86cb71e0fd58fd1549bd0eb9155451293d1955192829bd98e436be216cd5714c\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://868e6a362ef6727132b99d3030a27a84aed92d91b0e4943b3c8b0c3a3fceef40\",\"dweb:/ipfs/QmTvYVxevjKzWYF3tm2RELGXBggGL8QATArfZX1sk2eWKe\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: UNLICENSED\npragma solidity >=0.4.22 <0.9.0;\n\ninterface IFaucet {\n    function addFunds() external payable;\n    function withdraw(uint amount) external; \n} ",
+  "sourcePath": "/Users/nakama/Documents/code/dApp/dAppFaucet/contracts/IFaucet.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/IFaucet.sol",
+    "exportedSymbols": {
+      "IFaucet": [
+        162
+      ]
+    },
+    "id": 163,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 153,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "39:32:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IFaucet",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 162,
+        "linearizedBaseContracts": [
+          162
+        ],
+        "name": "IFaucet",
+        "nameLocation": "83:7:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "a26759cb",
+            "id": 156,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addFunds",
+            "nameLocation": "106:8:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 154,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "114:2:1"
+            },
+            "returnParameters": {
+              "id": 155,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "133:0:1"
+            },
+            "scope": 162,
+            "src": "97:37:1",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "2e1a7d4d",
+            "id": 161,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "withdraw",
+            "nameLocation": "148:8:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 159,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 158,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "162:6:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 161,
+                  "src": "157:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 157,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "157:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "156:13:1"
+            },
+            "returnParameters": {
+              "id": 160,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "178:0:1"
+            },
+            "scope": 162,
+            "src": "139:40:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 163,
+        "src": "73:109:1",
+        "usedErrors": []
+      }
+    ],
+    "src": "39:144:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.13+commit.abaa5c0e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2023-12-23T08:30:17.878Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
