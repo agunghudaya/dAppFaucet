@@ -3,23 +3,48 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Web3 from "web3";
 import detectEthProvider from '@metamask/detect-provider'
+import { loadContract } from "./utils/load-contract";
 
 function App() {
   const [web3Api, setWeb3Api] = useState({
     provider: null,
-    web3: null
+    web3: null,
+    contract: null
   })
 
+  const [balance, setBalance] = useState(null)
   const [account, setAccount] = useState(null)
  
   useEffect(() => {
-    const loadProvider = async () => {
+    
+    const loadBalance = async () => {
+      const { contract, web3 } = web3Api
 
+      if (contract) {
+        const balance = await web3.eth.getBalance(contract.options.address)
+        setBalance(web3.utils.fromWei(balance, "ether"))
+      }
+    }
+
+    if (web3Api) {
+      loadBalance();
+    }
+   
+  },[web3Api])
+
+  useEffect(() => {
+    const loadProvider = async () => {
+      
       const provider = await detectEthProvider()
 
       if (provider) {
+        const web3 = new Web3(provider)
+        const contract = await loadContract("Faucet", web3) 
+
         setWeb3Api({
-          web3: new Web3(provider), provider
+          web3, 
+          provider,
+          contract
         })
       } else {
         console.error("Please install metamask!")
@@ -37,8 +62,6 @@ function App() {
     web3Api.web3 && getAccounts()
 
   }, [web3Api.web3])
-
-
   
 
   return (
@@ -56,7 +79,7 @@ function App() {
             </h1>
           </div >
           <div className='balance-view is-size-2 mb-4'>
-            Current Balance: <strong>10</strong>
+            Current Balance: <strong>{balance} ETH</strong>
           </div>
           <button className='button is-link mr-2'>Donate</button>
           <button className='button is-primary'>Withdraw</button>
