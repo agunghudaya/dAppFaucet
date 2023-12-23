@@ -18,7 +18,6 @@ function App() {
       const provider = await detectEthProvider()
 
       if (provider) {
-        provider.request({method: "eth_requestAccounts"})
         setWeb3Api({
           web3: new Web3(provider), provider
         })
@@ -46,15 +45,21 @@ function App() {
     <>
       <div className='faucet-wrapper'>
         <div className='faucet'>
-          <span>
-            <strong>Account: </strong>
-            <h1>{ account ? account : "not connected" }</h1>
-          </span>
-          <div className='balance-view is-size-2'>
+          <div className="is-flex is-align-items-center">
+            <strong className="mr-2">Account: </strong>
+            <h1>{ 
+              account ? 
+              account : 
+              <button className='button is-small' onClick={() => 
+                web3Api.provider.request({method: "eth_requestAccounts"})}>
+                Connect</button> }
+            </h1>
+          </div >
+          <div className='balance-view is-size-2 mb-4'>
             Current Balance: <strong>10</strong>
           </div>
-          <button className='button mr-2'>Donate</button>
-          <button className='button mr-2'>Withdraw</button>
+          <button className='button is-link mr-2'>Donate</button>
+          <button className='button is-primary'>Withdraw</button>
         </div>
       </div>
     </>
